@@ -5,6 +5,7 @@ import DB.db;
 import java.awt.Color;
 import java.awt.event.*;
 
+
 public class Registro extends JPanel implements ActionListener{
 	Vprincipal l = Vprincipal.Instancia();
 	db basedd = db.Instancia();

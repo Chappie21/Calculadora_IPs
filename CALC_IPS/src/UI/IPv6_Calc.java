@@ -106,6 +106,7 @@ public class IPv6_Calc extends JPanel implements ActionListener{
 		if(e.getSource()==aceptar) {
 			if(!ip.getText().isEmpty()&&!mascara.getText().isEmpty()) {
 				String datos[] = ip.getText().split(":");
+				if(Obtener_ipv6(datos)!=null) {
 					String ipv6 = Obtener_ipv6(datos);
 					String IPn[] = ipv6.split(":");
 					int IPde[] = new int[8];
@@ -116,6 +117,7 @@ public class IPv6_Calc extends JPanel implements ActionListener{
 							verificar=false;
 							i=8;
 						}
+					}
 					if(verificar) {
 						Cipv6 claf = new Cipv6(IPde,ip.getText()+"/"+mascara.getText(),ipv6);
 						Mostrar(claf);basedd.Agregar_Ipv6(claf);
@@ -123,6 +125,9 @@ public class IPv6_Calc extends JPanel implements ActionListener{
 					else {
 						mensaje.showMessageDialog(null,"ERROR: BLOQUE CON MÁS 16 BITS");
 					}
+				}
+				else {
+					mensaje.showMessageDialog(null,"ERROR: FALLO DE ESCRITURA DE IPV6");
 				}
 			}
 			else {
